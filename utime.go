@@ -25,3 +25,15 @@ const Hour Duration = 3600
 
 // Day is a Duration of 1 day
 const Day Duration = (3600 * 24)
+
+// Since returns the time elapsed between now and a specified timestamp in the past.
+// Note: it doesn't check that the given timestamp is in the past!
+func Since(t0 Time) Duration {
+	return Duration(Now() - t0)
+}
+
+// Until returns the time difference between now and a specified timestamp in the future.
+// Note: it doesn't check that the given timestamp is in the future!
+func Until(t0 Time) Duration {
+	return Duration(t0 - Now())
+}

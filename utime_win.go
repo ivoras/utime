@@ -5,10 +5,7 @@ package utime
 // #cgo CFLAGS: -g -Wall
 // #include <time.h>
 import "C"
-
-import (
-	"time"
-)
+import "time"
 
 const nanosecondsScale int64 = 1000000000
 
