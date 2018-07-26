@@ -1,10 +1,10 @@
 # utime - a faster Time library for Go
 
-This library implements many of the Go's time functions on a 32-bit Unix timestamp format (seconds since the Epoch). The primary reasons for this are memory savings and performance.
+The goal of this library is to implement many of the Go's time functions on a 32-bit Unix timestamp format (seconds since the Epoch). The primary reasons for this are memory savings and performance.
 
-Go's time.Time consists of two 64-bit values and a pointer, making it 24 bytes in size on amd64. This library's Time type is just 4 bytes.
+Go's `time.Time` consists of two 64-bit values and a pointer, making it 24 bytes in size on amd64. This library's Time type is just 4 bytes.
 
-Should you use this library? Probably not, unless you know what you're doing. This library will mostly help in circumstances when there are a lot of in-memory structures holding times. In my own case, there were three `time.Time` values in a struct, amounting to 72 bytes, which was reduced to 12 bytes with this library.
+Should you use this library? Probably not, unless you know what you're doing. This library will mostly help in circumstances when there are a lot of in-memory structures holding timestamps. In my own case, there were three `time.Time` values in a struct, amounting to 72 bytes, which was reduced to 12 bytes with this library.
 
 Some benchmarks:
 
