@@ -41,3 +41,19 @@ func BenchmarkSince(b *testing.B) {
 		time.Since(t0)
 	}
 }
+
+func BenchmarkUSub(b *testing.B) {
+	t0 := Now()
+	t1 := Now()
+	for i := 0; i < b.N; i++ {
+		t1.Sub(t0)
+	}
+}
+
+func BenchmarkSub(b *testing.B) {
+	t0 := time.Now()
+	t1 := time.Now()
+	for i := 0; i < b.N; i++ {
+		t1.Sub(t0)
+	}
+}

@@ -1,9 +1,5 @@
 package utime
 
-// #cgo CFLAGS: -g -Wall
-// #include <time.h>
-import "C"
-
 // Time is an efficient 32-bit timestamp type, counting the second from the Unix epoch.
 // It doesn't (and can not) suport sub-second accuracy.
 // utime.Time implements most of the API of Go's default time.Time type. It is always
@@ -36,4 +32,11 @@ func Since(t0 Time) Duration {
 // Note: it doesn't check that the given timestamp is in the future!
 func Until(t0 Time) Duration {
 	return Duration(t0 - Now())
+}
+
+func (t Time) Sub(t2 Time) Duration {
+	if t2 > t {
+		return 0
+	}
+	return Duration(t - t2)
 }
